@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人檔案 - 泡泡糖社交</title>
+    <link rel="stylesheet" href="Client/css/styles.css">
+</head>
+<body>
+<header class="header">
+    <h1>個人檔案</h1>
+    <nav>
+        <a href="index.html">返回首頁</a>
+    </nav>
+</header>
+
+<div class="profile-section">
+    <h2>我的貼文</h2>
+    <div class="post-list" id="postList">
+        <!-- 個人貼文會顯示在這裡 -->
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", loadUserPosts);
+
+    function loadUserPosts() {
+        const postList = document.getElementById('postList');
+        postList.innerHTML = '';
+        const posts = [
+            { content: "我的第一篇貼文", time: "2024-11-22" },
+            { content: "我的第二篇貼文", time: "2024-11-22" },
+        ];
+        posts.forEach(post => {
+            const postCard = document.createElement('div');
+            postCard.className = 'post-card';
+            postCard.innerHTML = `
+                <div class="post-content">
+                    <p>${post.content}</p>
+                    <span class="post-time">${post.time}</span>
+                </div>
+            `;
+            postList.appendChild(postCard);
+        });
+    }
+</script>
+</body>
+</html>
